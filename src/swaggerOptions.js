@@ -52,7 +52,7 @@ const swaggerDefinition = {
           ten_thuoc: { type: "string" },
           mo_ta: { type: "string" },
           don_vi: { type: "string" },
-          cong_dung: { type: "string" },
+          quy_che: { type: "string" },
           cach_dung: { type: "string" },
           chong_chi_dinh: { type: "string" },
           url: { type: "string" },

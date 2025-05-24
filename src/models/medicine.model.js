@@ -25,18 +25,13 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(255),
         allowNull: true,
       },
-      cong_dung: {
+      quy_che: {
         // Công dụng của thuốc
         type: DataTypes.TEXT,
         allowNull: true,
       },
       cach_dung: {
         // Cách dùng thuốc
-        type: DataTypes.TEXT,
-        allowNull: true,
-      },
-      chong_chi_dinh: {
-        // Chống chỉ định của thuốc
         type: DataTypes.TEXT,
         allowNull: true,
       },
@@ -49,6 +44,15 @@ module.exports = (sequelize) => {
         // Trạng thái xóa của thuốc (0: chưa xóa, 1: đã xóa)
         type: DataTypes.BOOLEAN,
         defaultValue: false,
+      },
+      id_nguoi_dung: {
+        // ID người dùng
+        type: DataTypes.INTEGER,
+        allowNull: false,
+        references: {
+          model: "Nguoi_dung",
+          key: "id",
+        },
       },
     },
     {

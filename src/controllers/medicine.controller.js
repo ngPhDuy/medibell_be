@@ -2,7 +2,8 @@ const services = require("../services/medicine.service");
 
 exports.getAllMedicines = async (req, res) => {
   try {
-    const medicines = await services.getAllMedicines();
+    const { userID } = req.query;
+    const medicines = await services.getAllMedicines(userID);
     res.status(200).json(medicines);
   } catch (error) {
     res.status(500).json({ message: error.message });
@@ -33,6 +34,18 @@ exports.createMedicine = async (req, res) => {
 exports.updateMedicine = async (req, res) => {
   try {
     const medicine = await services.updateMedicine(req.params.id, req.body);
+    if (!medicine) {
+      return res.status(404).json({ message: "Medicine not found" });
+    }
+    res.status(200).json(medicine);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
+
+exports.deleteMedicine = async (req, res) => {
+  try {
+    const medicine = await services.deleteMedicine(req.params.id);
     if (!medicine) {
       return res.status(404).json({ message: "Medicine not found" });
     }

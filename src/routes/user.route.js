@@ -4,17 +4,10 @@ const controller = require("../controllers/user.controller");
 
 /**
  * @swagger
- * tags:
- *   name: Users
- *   description: API quản lý người dùng
- */
-
-/**
- * @swagger
- * /api/user:
+ * /api/users:
  *   get:
  *     summary: Lấy danh sách tất cả người dùng
- *     tags: [User]
+ *     tags: [Users]
  *     responses:
  *       200:
  *         description: Thành công, trả về danh sách người dùng
@@ -29,10 +22,10 @@ router.get("/", controller.getAllUsers);
 
 /**
  * @swagger
- * /api/user/{id}:
+ * /api/users/{id}:
  *   get:
  *     summary: Lấy thông tin người dùng theo ID
- *     tags: [User]
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id
@@ -54,10 +47,10 @@ router.get("/:id", controller.getUserById);
 
 /**
  * @swagger
- * /api/user:
+ * /api/users:
  *   post:
  *     summary: Tạo mới người dùng
- *     tags: [User]
+ *     tags: [Users]
  *     requestBody:
  *       required: true
  *       content:
@@ -76,10 +69,10 @@ router.post("/", controller.createUser);
 
 /**
  * @swagger
- * /api/user/{id}:
+ * /api/users/{id}:
  *   put:
  *     summary: Cập nhật thông tin người dùng
- *     tags: [User]
+ *     tags: [Users]
  *     parameters:
  *       - in: path
  *         name: id

@@ -7,6 +7,8 @@ const http = require("http");
 // Routes
 const userRoutes = require("./routes/user.route");
 const medicineRoutes = require("./routes/medicine.route");
+const authRoutes = require("./routes/auth.route");
+const medicineScheduleRoutes = require("./routes/medicineSchedule.route");
 
 const app = express();
 const port = 3000;
@@ -26,8 +28,10 @@ app.use(
   })
 );
 
-app.use("/api/user", userRoutes);
-app.use("/api/medicine", medicineRoutes);
+app.use("/api/users", userRoutes);
+app.use("/api/medicines", medicineRoutes);
+app.use("/api/auth", authRoutes);
+app.use("/api/medicine_schedules", medicineScheduleRoutes);
 
 app.listen(port, () => {
   console.log(`Server is running at http://localhost:${port}`);
