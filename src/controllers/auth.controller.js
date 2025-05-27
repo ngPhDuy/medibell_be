@@ -26,6 +26,7 @@ exports.login = async (req, res) => {
       fullName: rs.ho_va_ten,
       avtUrl: rs.avt_url,
       userName: rs.ten_dang_nhap,
+      id: rs.id,
     });
   } catch (error) {
     res.status(400).json({ message: error.message });

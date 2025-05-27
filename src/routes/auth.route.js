@@ -57,6 +57,10 @@ const authController = require("../controllers/auth.controller");
  *                   type: string
  *                   description: Tên đăng nhập người dùng
  *                   example: user1
+ *                 id:
+ *                   type: integer
+ *                   description: ID người dùng
+ *                   example: 1
  *       400:
  *         description: Đăng nhập thất bại
  *         content:

@@ -19,5 +19,6 @@ exports.login = async (username, password) => {
     ten_dang_nhap: user.ten_dang_nhap,
     ho_va_ten: user.ho_va_ten,
     avt_url: user.avt_url,
+    id: user.id,
   };
 };
