@@ -148,3 +148,17 @@ exports.getMedicineSchedulesById = async (scheduleID) => {
 
   return schedule;
 };
+
+exports.updatePushState = async (medicineScheduleIds, newState) => {
+  await MedicationSchedule.update(
+    { nhac_nho: newState },
+    {
+      where: {
+        id: {
+          [Op.in]: medicineScheduleIds,
+        },
+      },
+    }
+  );
+  return true;
+};

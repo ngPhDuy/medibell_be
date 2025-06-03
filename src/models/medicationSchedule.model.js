@@ -48,6 +48,10 @@ module.exports = (sequelize) => {
         type: DataTypes.STRING(10),
         allowNull: false,
       },
+      nhac_nho: {
+        type: DataTypes.BOOLEAN,
+        allowNull: false,
+      },
     },
     {
       tableName: "Lan_uong", // Tên bảng trong cơ sở dữ liệu

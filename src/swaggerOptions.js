@@ -9,6 +9,9 @@ const swaggerDefinition = {
   },
   servers: [
     {
+      url: "http://167.99.67.182:8080",
+    },
+    {
       url: "https://medibell-be.onrender.com",
     },
     {

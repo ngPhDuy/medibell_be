@@ -7,6 +7,7 @@ const definePrescription = require("./prescription.model");
 const definePrescriptionContainsMedicine = require("./prescriptionContainsMedicine.model");
 const defineMedicationSchedule = require("./medicationSchedule.model");
 const defineMedicineInSingleDose = require("./medicineInSingleDose.model");
+const defienNotificationToken = require("./notificationToken.model");
 
 require("dotenv").config();
 //Kết nối đến neon.tech
@@ -38,6 +39,7 @@ const PrescriptionContainsMedicine =
   definePrescriptionContainsMedicine(sequelize);
 const MedicationSchedule = defineMedicationSchedule(sequelize);
 const MedicineInSingleDose = defineMedicineInSingleDose(sequelize);
+const NotificationToken = defienNotificationToken(sequelize);
 
 //Các quan hệ
 Medicine.belongsTo(User, {
@@ -124,6 +126,18 @@ Medicine.hasMany(MedicineInSingleDose, {
   as: "Thuoc_trong_mot_lan_uong",
 });
 
+NotificationToken.belongsTo(User, {
+  foreignKey: "id_nguoi_dung",
+  targetKey: "id",
+  as: "Nguoi_dung",
+});
+
+User.hasMany(NotificationToken, {
+  foreignKey: "id_nguoi_dung",
+  sourceKey: "id",
+  as: "Token_thong_bao",
+});
+
 //Thiết lập quan hệ giữa các model
 
 module.exports = {
@@ -135,4 +149,5 @@ module.exports = {
   PrescriptionContainsMedicine,
   MedicationSchedule,
   MedicineInSingleDose,
+  NotificationToken,
 };

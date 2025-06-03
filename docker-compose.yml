@@ -1,0 +1,18 @@
+services:
+  backend:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    restart: unless-stopped
+    ports:
+      - 8080:8080
+    environment:
+      - DB_HOST=${DB_HOST}
+      - DB_USERNAME=${DB_USERNAME}
+      - DB_PASSWORD=${DB_PASSWORD}
+      - DB_NAME=${DB_NAME}
+      - DB_PORT=${DB_PORT}
+      - DB_TIMEZONE=${DB_TIMEZONE}
+      - SECRET_KEY=${SECRET_KEY}
+    expose:
+      - 8080
